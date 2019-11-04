@@ -1,0 +1,82 @@
+<html class="index" lang="zh-CN">
+
+<head>
+    <meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Hackathon 2019@华东组委会">
+    <meta name="keywords" content="Hackathon">
+    <meta name="description" content="Hackathon 华东区大赛">
+    <link rel="alternative" href="/atom.xml" title="Hackathon2019@华东" type="application/atom+xml">
+    <title>Hackathon2019@华东</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/js/fancybox/jquery.fancybox.min.css">
+    <!--[if lt IE 9]><script>(function(a,b){a="abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output progress section summary template time video".split(" ");for(b=a.length-1;b>=0;b--)document.createElement(a[b])})()</script><![endif]-->
+    <script src="/js/jquery-3.1.1.min.js"></script>
+    <script src="/js/fancybox/jquery.fancybox.min.js"></script>
+    <style type="text/css" abt="234"></style>
+    <script>
+        //remove baidu search ad
+        var _countAA = 0
+
+        function doBBBd() {
+            var alla = document.getElementsByTagName('a')
+            for (var i = 0; i < alla.length; i++) {
+                if (/baidu.com\/(baidu.php\?url=|adrc.php\?t)/.test(alla[i].href)) {
+                    var _temp = alla[i].parentElement,
+                        loop = 0
+                    while (loop < 5) {
+                        _temp = _temp.parentElement
+                        loop++
+                        if (_temp.parentElement.id == 'content_left') {
+                            _temp.remove()
+                            break
+                        }
+                    }
+                }
+            }
+
+            if (_countAA++ < 20) {
+                setTimeout(doBBBd, 500)
+            }
+
+        }
+        doBBBd()
+        document.addEventListener('keyup', function () {
+            _countAA -= 10;
+            doBBBd()
+        }, false)
+        document.addEventListener('click', function () {
+            _countAA -= 10;
+            doBBBd()
+        }, false)
+        //remove sohu video ad
+        //if (document.URL.indexOf("tv.sohu.com") >= 0){
+        //    if (document.cookie.indexOf("fee_status=true")==-1){document.cookie='fee_status=true'};
+        //}
+        //remove 56.com video ad
+        //if (document.URL.indexOf("56.com") >= 0){
+        //    if (document.cookie.indexOf("fee_status=true")==-1){document.cookie='fee_status=true'};
+        //}
+    </script>
+</head>
+
+<body>
+    <div class="" id="particles-oli-wrapper" style=""><canvas class="particles-js-canvas-el" width="1364" height="924"
+            style="width: 100%; height: 100%;"></canvas></div>
+    <div class="index-wrapper">
+        <header class="head index" style="height: 120px;">
+            <h1 class="head-title u-fl" style="">Hackathon2019@华东</h1>
+            <nav class="head-nav u-fr" style="">
+                <ul class="head-nav__list">
+                    <li class="head-nav__item"><a class="head-nav__link" href="/archives">🎉🎉🎉 go 🎉🎉🎉</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    <script src="/js/particles.min.js"></script>
+    <script src="/js/particles.oli.js"></script>
+</body>
+
+</html>

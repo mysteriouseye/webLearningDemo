@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const fruits = ['Apple', 'Banana', 'Orange', 'Mango'];
+        //旧的遍历方法
+        for (let i=0; i < fruits.length; i++){
+            console.log(fruits[i]);
+        }
+        //foreach 缺点是不能中断跳出
+        fruits.forEach(fruit => {
+            console.log(fruit);
+        })
+        //for in循环，缺点是给Array.prototype.first=xxxx 加入值它也会遍历出来
+        for(let index in fruits)
+        {
+            console.log(index);//索引值
+            console.log(fruits[index]);//值
+        }
+        //es6 for of循环 支持跳出循环，且没有for in的缺点
+        for(let fruit of fruits)
+        {
+            console.log(fruit);
+        }
+    </script>
+</body>
+</html>

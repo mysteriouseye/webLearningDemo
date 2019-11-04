@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let methodName = 'info';
+        class User {
+            constructor(name, email) {
+                this.name = name;
+                this.email = email;
+            }
+
+            [methodName]() {
+                console.log(`Hi, I'm ${this.name}`);
+            }
+            //静态方法只能在原类上调用(User.descripton)，不能用实例(codecasts.description)调用
+            static description() {
+                console.log(`I'm a user of codecasts.com`);
+            }
+
+            set github(value) {
+                this.githubName = value;
+            }
+
+            get github() {
+                return `https://github.com/${this.githubName}`;
+            }
+        }
+
+        //继承
+        class Animal {
+            constructor(name) {
+                this.name = name;
+                this.belly = [];
+            }
+
+            eat(food){
+                this.belly.push(food);
+            }
+            speak(){
+                console.log(`Hi, I'm ${this.name}`);
+            }
+        }
+        //以下为Es5的继承写法
+        // function Dog(name, age){
+        //     Animal.call(this, name, age);
+        //     this.name = name;
+        //     this.age = age;
+        // }
+
+        // Dog.prototype = new Animal();
+        // Dog.prototype.constructor = Dog;
+
+        class Dog extends Animal {
+            constructor(name, age) {
+                super(name);
+                this.age = age;
+            }
+
+            bark () {
+                console.log('ddddd');
+            }
+            //重写
+            speak() {
+                console.log(`bark bark!`);
+            }
+        }
+        const lucky = new Dog('lucky', 2);
+    </script>
+</body>
+
+</html>

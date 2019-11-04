@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const numbers = [5,6,13,0,1,18,13];
+        const double = numbers.map(function(number){
+            return number * 2;    
+        });//所有元素×2
+        const double2 = numbers.map(number => {
+            return number * 2; //显示返回
+        });//箭头函数版 单参数即可,多参数打括号
+        const double3 = numbers.map(number => number * 2);//隐式返回 
+        console.log(double);
+        console.log(double2);
+        console.log(double3);
+
+        const greed = name => {alert(`Hello ${name}`)};//匿名函数 一般不带返回值
+        greed('jelly');
+    </script>
+</body>
+</html>

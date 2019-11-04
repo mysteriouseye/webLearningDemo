@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const jack = {
+            name: 'jack',
+            hobbies: ['Coding','Sleeping','Reading'],
+            printHobbies: function(){
+                console.log(this);
+                this.hobbies.map(function(hobby){
+                    console.log(this);
+                    console.log(`${this.name} loves ${hobby}`);
+                }); //过去js来说，单独的函数内的this并没有声明，默认指向的是js的window对象 ，所以获取不到this.name属性。
+                this.hobbies.map(hobby => {
+                    console.log(`${this.name} loves ${hobby}`);
+                    //箭头函数就是语法糖 因为它没有this值，是继承于父级作用域，所以不会改变它里面的this的继承值，所以它不会变成原来js写法默认的指向window
+                })
+            }
+        }
+        //所以上述问题在ES6可以用箭头函数来解决
+
+        jack.printHobbies();
+    </script>
+</body>
+</html>

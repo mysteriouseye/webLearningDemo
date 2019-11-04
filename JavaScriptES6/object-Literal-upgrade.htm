@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const name = 'jack';
+        const age = 2;
+        const birthday = '2015-09';
+        const jack = {
+            name,
+            age,
+            birthday,
+            greet: function(){
+
+            },
+            greetes6(){
+                alert("es6 function!");
+            }
+        }
+
+        //以上只要是等同的变量名，即可自动赋值到对象属性里
+        /*module.exports{
+            getName,
+            getAge,
+            getBirthday
+        }*/
+        console.log(jack);
+        let id = 0;
+        const userIds = {
+            'user-1': 1,
+            'user-2': 2
+        }//过去一个个定义
+        const userIdses6 = {
+            [`userId-${++i}`]: id
+        }
+
+        const keys = ['name', 'age', 'birthday'];
+        const values = ['jack', '2', '2015-2-9'];
+        const jacks = {
+            [keys.shift()]: values.shift(),
+            [keys.shift()]: values.shift(),
+            [keys.shift()]: values.shift()
+        }
+        console.log(jacks);
+        
+    </script>
+</body>
+</html>

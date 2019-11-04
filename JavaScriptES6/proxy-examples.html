@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const phoneHandler = {
+            set(target, key, value) {
+                target[key] = value.match(/[0-9]/g).join('');
+            },
+            get(target, key){
+                return target[key].replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3')
+            }
+        }
+        const phoneNumber = new Proxy({}, phoneHandler);
+        phoneNumber.home = '131 1881 2281';
+        phoneNumber.work = '159 155 15511';
+        console.log(`home:${phoneNumber.home} work: ${phoneNumber.work}`);
+
+        //eg 2
+        const safeHandler = {
+            set(target, key, value) {
+                const likeKey = Object.keys(target).find(k => k.toLowerCase() === key.toLowerCase());
+                if (!(key in target) && likeKey) {
+                    throw new Error(`Oops!Looks like we already have a property ${key} but with the case of ${likeKey}`);
+                }
+                //否则写入target key中
+                target[key] = value;
+            }
+        }
+        const safetyProxy = new Proxy({ id: 2 }, safeHandler);
+        safetyProxy.ID = 5; //报错，因为已经存在id 内部排除了大小写相同的属性
+
+    </script>
+</body>
+</html>

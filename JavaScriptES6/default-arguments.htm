@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function multiply(a = 5, b =3){
+            return a * b; 
+        }//默认参数，可不提供参数,但是提供参数必须全部提供完整
+        console.log(multiply());
+        //console.log(multiply(,2));//会报错
+        console.log(multiply(undefined,2));//不想报错，局部使用默认参数，必须提供undefined
+        const multiply2 = (a = 5,b = 3)=>{return a * b};
+        multiply2();
+    </script>
+</body>
+</html>

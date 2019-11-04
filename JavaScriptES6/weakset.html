@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //weakset就是有限制的set
+        let jelly = { name: 'jelly', age: 20 };
+        let mary = { name: 'mary', age: 25 };
+
+        const people = new WeakSet([jelly, mary]);
+        // //报错，因为weakset不能直接接受值，只能是对象people.add('string');
+
+        //不能直接用for of forEach迭代
+        //不能用clear（）方法
+        mary = null;
+        console.log(people);
+        console.log(people);
+        //以上和普通对象最大不同就是没有内存泄漏，普通对象将mary设置null 对象中还是存在mary的引用，而weakset不会，可以自我清除掉
+    </script>
+</body>
+</html>

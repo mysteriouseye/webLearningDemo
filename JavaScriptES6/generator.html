@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function* listColors(){
+            yield 'red';
+            yield 'green';
+            yield 'blue';
+        }
+        //生成器其实就是给你的函数弄了个迭代器
+        const colors = listColors();
+        colors.next()
+        function* listValue(){
+            let i = 0;
+            yield i; //其实这就是记录定义next方法该执行的地方
+            i++;
+            yield i;
+            i++;
+            yield i;
+        }
+        const repos = [
+            { name: 'grit', owner: 'mojombo', description: 'Grit is no long'},
+            { name: 'grist', owner: 'mojomsbo', description: 'Grit is sdo long'},
+            { name: 'grivt', owner: 'd', description: 'Grit is nof long'},
+        ];
+        function* loop(arr){
+            console.log(repos);
+            for (let repo of repos){
+                yield repo;
+            }
+        }
+        const repoGen = loop(repos);
+        repoGen.next();
+        repoGen.next().value;
+    </script>
+</body>
+</html>

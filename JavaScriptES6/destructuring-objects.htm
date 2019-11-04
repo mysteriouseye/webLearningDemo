@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const Tom = {
+            name: 'Tome Jones',
+            age: 25,
+            family: {
+                mother: 'Norah Jones',
+                father: 'Richard Jones',
+                brother: 'Howard Jones'
+            }
+        }
+        //ES6对象解构
+        const { name, age } = Tom;
+        console.log(name);
+        console.log(age);
+
+        const {father, mother, brother} = Tom.family;
+        //也可以内部重新声明变量 如const {father:f, mother, brother} = Tom.family;
+        //也可以设定一个不存在的undefined类型的属性默认值 如下
+        //const {father:f, mother, brother, sister = "have no sister"} = Tom.family;
+        console.log(father);
+        console.log(mother);
+        console.log(brother);
+        //此引用处理json 和dom style很有用 设定默认值，可回滚可重定义
+    </script>
+</body>
+</html>

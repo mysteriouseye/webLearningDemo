@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //symbol是第七种数据类型,用于创建一个唯一的标志符
+        const peter = Symbol('peter');
+        const student = Symbol('student');  //两者不相同
+        const classRoom = {
+            [Symbol('lily')] : { grade: 60, gender: 'female' },
+            [Symbol('nina')] : { grade: 80, gender: 'female' },
+            [Symbol('nina')] : { grade: 90, gender: 'female' },
+        }//两个Nina会出现覆盖
+        //symbol可以解决
+
+        for(let key in classRoom){
+            console.log(key); //无法便利出symbol
+        }
+
+        //遍历出symbol
+        const syms = Object.getOwnPropertySymbols(classRoom).map(sym => classRoom.sym);
+        console.log(syms);
+    </script>
+</body>
+</html>

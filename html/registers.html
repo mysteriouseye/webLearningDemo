@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+    <style>
+        .ndiv {
+            font-size: 13px;
+            margin-left: 73px;
+        }
+        .ndiv input{
+            width: 220px;
+        }
+        .ndiv p{
+            font-size: 13px;
+            margin-left: 60px;
+        }
+        span {
+            color: red;
+        }
+
+    </style>
+    <script>
+        function checkUser(user){
+            let username = user[0].value;
+            let password = user[1].value;
+            let repassword = user[2].value;
+            if(!(/^[a-zA-Z0-9_-]{4,16}$/).test(username)){
+                alert('昵称格式不正确！请检查！');
+                return false;
+            }else if(!(/^[a-zA-Z0-9]{6,16}$/).test(password)){
+                alert('密码格式不正确！请检查！');
+                return false;
+            }else if(repassword != password){
+                alert('重复输入的密码和上一次输入的密码不一致！请检查！');
+                return false;
+            }else{
+                return true;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form name="register" action="https://cn.bing.com" id="register" method="POST" onsubmit="return checkUser(this);">
+        <div class="ndiv">
+            <span>*</span>昵称：<input type="text" minlength="4" maxlength="16" />
+            <p>英文字母，数字或者下划线，长度位4-16个字符</p>
+            <span>*</span>密码：<input type="password" minlength="6" maxlength="16" />
+            <p>6-16个字符组成字母或数字组成</p>
+        </div>
+        <span>*</span>重新输入密码：<input type="password" minlength="6" maxlength="16" />
+        <p></p>
+        <input type="submit" value="提交注册" />
+    </form>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const jelly = {
+            name: 'jelly',
+            date: '2017-05-07',
+            todos: [
+                {name: 'Go to Store', completed: false},
+                {name: 'Watch movie', completed: true},
+                {name: 'Running', completed: true}
+            ]
+        }
+        function renderTodos(todos){
+            return(`
+                <ul>
+                    ${jelly.todos.map(todo => `
+                            <li>
+                                ${todo.name} ${todo.completed ? '√' : '×'}
+                            </li>
+                        `).join('')}
+                </ul>
+            `);
+        }//jion可以覆盖取消逗号
+        //模板字符串可以嵌套
+        const template = ` 
+            ${renderTodos(jelly.todos)}
+        ` 
+        console.log(template);
+        document.body.innerHTML = template;
+    </script>
+</body>
+</html>

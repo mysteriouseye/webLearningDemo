@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const colors = ['red', 'blue', 'green'];
+        const iterator = colors[Symbol.iterator]();
+        //内建遍历器：
+        const nei_it = colors.entries();
+        nei_it.next();
+        const nei_key = colors.keys();
+        nei_key.next();
+
+        const nei_value = colors.values();
+        nei_value.next();
+        //自己实现一个value遍历器：
+        Array.prototype.values = function() {
+            let i = 0;
+            let items = this;
+            return {
+                next() {
+                    const done = i >= items.length;
+                    const value = done ? undefined : items[i++];
+                    return {
+                        value,
+                        done
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

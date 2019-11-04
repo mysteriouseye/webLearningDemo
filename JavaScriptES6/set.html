@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const color = new Set();
+        color.add('red');
+        color.add('green');
+        color.add('blue');
+        color.add(5);
+        color.add('5');
+        //set不可用索引获取，并且不能存在相同的值
+        color.delete('red'); //删除元素
+        color.has(5); //是否存在
+        color.size;//大小
+
+        //遍历器方法：
+        color.values()
+        //
+        for (let i of color){
+            console.log(i);
+        }
+        //foreach
+        color.forEach((item, key, ownSet) => {
+            console.log(item, key, ownSet);
+        })
+        //另一种初始化方式
+        const fruites = new Set(['apple', 'banana', 'mongo']);
+        //Set可以用来去重
+        //利用扩展运算符把set转为数组
+        const numberSet = new Set([1, 2, 3, 4, 5, 5, 5])
+        const uniqueNumbers = [...numberSet];
+    </script>
+</body>
+</html>

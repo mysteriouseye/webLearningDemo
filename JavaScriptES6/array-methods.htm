@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const inventory = [
+            {name: 'apples', quantity: 2},
+            {name: 'bananas', quantity: 0},
+            {name: 'cherries', quantity: 5}
+        ]
+
+        //.find()
+        const bananas = inventory.find(fruit => fruit.name == 'bananas');//找到包含bananas的对象
+        console.log(bananas);
+        //.findIndex();
+        const apples = inventory.findIndex(fruit => fruit.name == 'apples');
+        console.log(apples);
+        //some()
+        const isEnough = inventory.some(fruit => fruit.quantity > 0);//只要有一个满足条件 就会返回true;
+        //every()
+        const allEnough = inventory.every(fruit => fruit.quantity > 0);//所有都需要满足条件，才会返回true;
+    </script>
+</body>
+</html>

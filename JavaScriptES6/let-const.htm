@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <a>hhhhh</a>
+    <script>
+        let count = 10; //let和const块级作用域 var是函数作用域
+        //let count = 29; //不能在同一个地方重复赋值
+        let discount = 0.9; //全局作用域定义了
+        const key = "abc123"; //不可再单独定义，但是如果定义的是对象可以改变里面的属性
+        const person = {
+            name:'jack',
+            age:20
+        }
+        const jack = Object.freeze(person); //如果先定义一个不可再被改变的对象，使用Object.freeze()
+        if(count > 5){
+            let discount = 0.5;
+            console.log(discount);//获取的是块级作用域的discount
+        }
+        console.log(discount); //全局作用域的
+        
+    </script>
+</body>
+</html>

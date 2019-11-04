@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1></h1>
+    <script src="./dist/dist/bundle.js">
+    /*
+        意义，由于浏览器不支持es6module目前，所以为了兼容性和项目管理便利性，便有了webpack babel这样的工具来方便打包和转换es6为es5代码
+
+
+        命令行执行的webpack 和babel打包的过程
+        首先在项目目录创立npm依赖配置文件
+        npm init
+        然后安装自己需要的依赖库
+        npm install xxx --save（save将会保存安装信息到package.json）或者--save-dev 开发环境模式下依赖插件信息的保存
+        接着用es6的模式去导入js 建立一个app.js 然后在里面输入类似 import等语法导入插件
+        然后再暂时在htmz中引入app.js
+        接着安装webpack
+        npm install webpack --save-dev
+        然后安装babel全家桶 注意babel-loader必须指定7以上版本 才能配合webpack使用
+        npm install babel-loader@7 babel-core babel-preset-es2015 --save-dev
+        接着建立好webpack的配置文件 webpack.config.js
+        具体参见文件夹里的配置文件
+        安装好后去package.json中修改test那一行 具体看文件内容
+
+        然后执行 npm run build
+        会提示你是否安装webpack-cli
+        输入是即可 过一会便会编译完成
+
+        webpack有智能提示插件，可以在vscode市场里搜索
+    */
+    
+    </script>
+</body>
+</html>

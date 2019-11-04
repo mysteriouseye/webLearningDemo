@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>go to Store</li>
+        <li>Watch Tv</li>
+        <li>Go Shopping</li>
+    </ul>
+    <script>
+        const num = [1,2,3];
+        //nums.from();//会报错
+        //nums.of();//会报错
+        Array.from(num); //正确方法
+        Array.of(num); //正确方法
+        //应用场景
+        const todo = document.querySelectorAll('li');
+        //以上的到的并不是真正的数组 而是类数组对象
+        const toArray = Array.from(todo, todo => todo.textContent);//转换文字内容为数组
+        console.log(toArray);
+
+        function sum(){
+            return Array.from(arguments).reduce((prev,curr) => prev + curr, 0);
+        }
+        sum(23,14,123,41,32);
+        //字符串也可以转换数组 为一个个字符
+        const wesite = 'jack';
+        console.log(Array.from(wesite));
+
+        Array.of(1,2,3);//创建一个包含1，2，3的数组 new Array()单个参数不能创建一个有数据数组，而是创建一个参数长度的空数据
+    </script>
+</body>
+</html>

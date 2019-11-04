@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //不允许使用箭头函数的地方
+        //1。作为构造函数，一个方法需要绑定到对象
+        //const Person = (name,point) =>{
+            //this.name = name;
+            //this.point = point;
+        //}
+        //以上实例化会报错
+       // const Jelly = new Person('jelly',5);
+        //所以以上只能使用如下旧的方法
+        const Person = function(name,point){
+            this.name = name;
+            this.point = point;
+        }
+        const Jelly = new Person('jelly',5);
+        //原型函数不能使用箭头函数，因为无法绑定this的对象，所以会指向window，所以值为NaN，也只能用function
+        Person.prototype.updatePoints = () =>{
+            this.point++;
+            console.log(this.point);
+        }
+
+        //2.当你真的需要this的时候,箭头函数并不会绑定this的对象
+        /*const button = document.querySelector('.zoom');
+        button.addEventListener('click',function(){
+            this.classList.add('in');
+            //下面就可以使用箭头函数,因为在外层的function已经绑定了this，下面的箭头函数就绑定了this元素
+            //如果下面直接使用function()反而是新定义了一层元素，无法绑定，会报错
+            setTimeout(()=>{
+                this.classList.remove('in');
+            },1000);
+        });*/
+
+        //3.使用arguments对象时,箭头函数没有arguments
+        const sum = () =>{
+            return Array.from(arguments)
+                        .reduce((prevSum, value) => prevSum + value, 0)
+        }//reduce求和数组中的元素总和 eg:sum(1,2,3);
+        const sum2 = function(){
+            return Array.from(arguments)
+                        .reduce((prevSum,value) => prevSum + value, 0)
+        }
+        //非要用箭头函数求参数和，可以如下写，把参数传入变成一个数组即可
+        const sum3 = (...args) => {
+            return args.reduce((prevSum,value) => prevSum + value, 0);
+        }
+
+    </script>
+</body>
+</html>

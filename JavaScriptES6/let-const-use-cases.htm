@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        for(var i = 0;i < 10;i++){
+            console.log(i);
+            setTimeout(function(){
+                console.log(`i:${i}`);
+
+            },1000); //因为是var是全局作用域 i相当于全局变量，而因为js不可同步执行，只能异步，所以setTimeout这个函数执行时其实是异步操作，一秒后i已经循环计算完毕了，所以得到的值每次都是最终全局作用域的的10
+        }
+        for(let j = 0;j < 10;j++){
+            console.log(j);
+            setTimeout(function(){
+                console.log(`j:${j}`);
+            },1000) //此处，let只作用于for这个函数内，而for的每次循环都是新的块级作用域，所以即便异步它取得的也只是每个新的let里面每次的值
+            //简单理解不同就是，setimeOut等待一秒钟后，执行console.log,而外层for循环有10次，所以就时等待1秒后，执行console.log，所以它所取得的值收到作用域的影响
+        }
+    </script>
+</body>
+</html>

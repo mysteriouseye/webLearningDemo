@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>Go to store</li>
+        <li>Watch movie</li>
+        <li>Go shopping</li>
+    </ul>
+    <script>
+        const todos = [...document.querySelectorAll('li')];//扩展运算符也可以这么用 达到Array.from的效果
+        const names = todos.map(todo => todo.textContent);
+        console.log(names);
+
+        const favorites = {
+            color: ['yellow', 'blue'],
+            fruites: ['bananas', 'mongo']
+        }
+
+        const shopping = ['milk', 'sweets', ...favorites.fruites];//也可以扩展对象里的数组
+        console.log(shopping);
+
+        const todoss = [
+            {id: 1, name: 'Go to store', complete: false},
+            {id: 2, name: 'Watch Tv', complete: true},
+            {id: 3, name: 'Go shopping', complete: true},
+            {id: 4, name: 'Go shopping 2', complete: true},
+            {id: 5, name: 'Go shopping 3', complete: true},
+        ]
+        //以下是删除2号对象的过程
+        const todoIndex = todoss.findIndex(todo => todo.id == 2);
+        const newTodos = [todoss.slice(0, todoIndex), todoss.slice(todoIndex + 1)];
+        //以上slice方法会把取得的数据变成一个数组，所以需要扩展运算符把它变回去;
+        //slice方法传入参数 第一个为x位，第二个为n位，意思是指取哪两个索引的值，单个参数+1则是取该索引后面所有的值
+        const newTodoss = [...todoss.slice(0, todoIndex), ...todoss.slice(todoIndex + 1)];
+        console.log(newTodos);
+        console.log(newTodoss);
+    </script>
+
+</body>
+</html>

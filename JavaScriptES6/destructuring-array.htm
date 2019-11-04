@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const numbers = ['one', 'two', 'three', 'four'];
+        const [one, two] = numbers; //解构数组不大一样，中括号里逗号分割代表索引
+        //const [one, ...others] = numbers;取得one后的所有数组元素 
+        //应用:值交换
+        let temp;
+        temp = a;
+        a = b;
+        b = temp;
+        //以上是过去交换法
+        //es6
+        [a, b] = [b, a]
+        
+    </script>
+</body>
+</html>

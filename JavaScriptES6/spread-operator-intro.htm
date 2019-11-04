@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const youngers = ['George', 'John', 'Thomas'];
+        const olders = ['James', 'Adrew', 'Martin'];
+        //整合上面数组
+        const members = youngers.concat(olders);
+        console.log(members);
+        //想在中间加入一个数据的原办法
+        let mm = [];
+        mm = mm.concat(youngers);
+        mm.push('Mary');
+        mm = mm.concat(olders);
+        console.log(mm);
+        //es6办法 扩展运算符
+        //['jack']变成[...'jack']会扩展为字符数组
+        const newMembers = [...youngers, "Mary", ...olders];
+        //const currentMembers = newMembers;//这样看上去没问题，但是类似于指针，const的新赋值请按一个也是const，会导致这个current内容被改变，newMem也会被改变，所以需要新变量被改变，需要新赋一个数组，然后整合之前的内容进去
+        const currentMembers = [...newMembers];
+        console.log(newMembers);
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let jelly = { name: 'jelly' };
+        let miffy = { name: 'miffy' };
+
+        const strong = new Map();
+        const weak = new WeakMap();
+
+        strong.set(jelly, 'jelly is the best!');
+        weak.set(miffy, 'miffy is the 2nd best!');
+        strong;
+        weak;
+        weak.size;//undefined 没有这个属性
+        //weakmap也不能使用forof循环
+        //weakmap也不能用clear（）
+        //weakmap使用set也必须要对象不能直接用值
+        //weakmap 和 weakset一样有垃圾回收，防止内存泄漏
+    </script>
+</body>
+</html>

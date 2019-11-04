@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const repos = [
+            { name: 'grit', owner: 'mojombo', description:'Grit is no loger maintained', id: 1},
+            { name: 'jsawesome', owner: 'vanplet', description:'Awesome JSON', id: 2},
+            { name: 'merb-core', owner: 'wycats', description:'Merb Core: All you need. None you don\'t', id: 3},
+        ];
+
+        const owners = [
+            { name: 'mojombo', location: 'San Francisco', followers: 123},
+            { name: 'vanpelt', location: 'Bay Minette', followers: 1034},
+            { name: 'wycats', location: 'Los Angeles, CA', followers: 388},
+        ];
+
+        function getRepoById(id){
+            return new Promise((reslove, reject) => {
+                setTimeout(() => {
+                    const repo = repos.find(repo => repo.id == id);
+                    if(repo)
+                    {
+                        reslove(repo);
+                    }else{
+                        reject(Error("No repo found."));
+                    }
+                },2000);
+            });
+        }
+
+        function comboundOwner(repo){
+            return new Promise((reslove, reject) => {
+                const owner = owners.find(owner => owner.name === repo.owner);
+                if(owner)
+                {
+                    repo.owner = owner;
+                    reslove(repo);
+                }else{
+                    reject(Error("can not found the owner."))
+                }
+            });
+        }
+        getRepoById(1)
+            .then(repo => {
+                return comboundOwner(repo);
+            })
+            .then(repo => {
+                console.log(repo);//这里监听的是上面的repo的信息
+            })
+            .catch(err =>{
+                console.error(err);
+            });
+        
+    </script>
+</body>
+</html>

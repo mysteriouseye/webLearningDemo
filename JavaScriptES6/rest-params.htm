@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sum(...numbers){ //数组化保存到numbers
+            console.log(numbers);
+            numbers.reduce((prev,curr) => prev + curr,0);
+        }
+        sum(1,2,3,4);
+        //应用场景 汇率计算
+        function converCurrency(rate, ...amounts){
+            return amounts.map(amount => amount * rate);    
+        }
+        const amounts = converCurrency(0.89,12,34,56,77);
+        console.log(amounts);
+        //变量解构
+        const player = ['jack', 123, 23, 213, 123, 33];
+        const [name,id,...scores] = player;
+        console.log(name, id, scores);
+        
+    </script>
+</body>
+</html>

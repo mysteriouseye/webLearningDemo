@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const fruit = ['apple', 'bananas', 'pear'];
+        const newFruit = ['orange', 'mongo']
+        
+        //fruit.push.apply(fruit, newFruit);旧办法
+        fruit.push(...newFruit);
+
+        console.log(fruit);
+        const dateFields = [2017, 5, 6]
+        //参数形式const date = new Date(year,month,day);
+        const date = new Date(...dateFields);
+        //扩展运算符可以把数组扩展成函数参数
+        console.log(date);
+        
+    </script>
+
+</body>
+</html>

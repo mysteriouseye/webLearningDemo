@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const people = new Map();
+        people.set('jelly', 23);
+        people.set('mary', 25);
+        people.set('miffy', 30);
+        people.get('jelly');
+        people.size;
+        people.has('mary');
+        people.forEach((value, key, map) => {
+            console.log(value, key, map);
+        });
+        for (let pp of people){
+            console.log(pp);
+        }
+        for (let [key, value] of people){
+            console.log(key, value);
+        }
+        people.delete('miffy');
+
+        people.clear();//清空
+
+        const fruits = new Map([['apple', 6], ['banana', 5]]);//直接初始化
+    </script>
+</body>
+</html>

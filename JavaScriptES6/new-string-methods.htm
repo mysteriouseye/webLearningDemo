@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const id = '231234444x';
+        const fan = 'I love Laravist.';
+        id.startsWith('23'); //查询是否存在该字符串 
+        id.startsWith('444',5);//第二个参数代表从开头开始 第几个位数的字符开始查找
+        id.startsWith('i');//大小写敏感
+        id.endsWith();//和startwith相反 效果一样
+        fan.includes();//是否包含 效果等同fan.indexOf('Laravist') !== -1 第二个参数是从第X位之后开始查询是否有该字符串
+        '哈'.repeat(10); //让字符串重复出现的方法
+        const heading = `${'='.repeat(5)} ${fan} ${'='.repeat(5)}`;
+        //右对齐
+        function padder(strings, length=25){
+            return `${' '.repeat(Math.max(length - strings.length, 0))}${strings}`;
+        }
+        console.log(padder(id));
+        console.log(padder(fan));
+        
+    </script>
+</body>
+</html>
